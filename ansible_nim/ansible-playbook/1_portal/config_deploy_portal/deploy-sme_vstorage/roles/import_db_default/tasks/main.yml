@@ -1,0 +1,4 @@
+- name: Import database default
+  command: "{{ item }}"
+  with_items:
+    - bash /home/auto_deploy_portal/deploy-sme_vstorage/config/import_db.sh

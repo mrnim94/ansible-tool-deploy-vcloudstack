@@ -1,0 +1,16 @@
+---
+- name: Run mysql container
+  docker_container:
+    name: 'mysql'
+    restart_policy: always
+    image: "{{mysql_image}}"
+    network_mode: host
+    volumes:
+      - "{{mysql_vol}}/data:/var/lib/mysql:rw,cached"
+      - "{{mysql_vol}}/conf/:/etc/mysql/conf.d:rw,cached"
+      - "/etc/localtime:/etc/localtime"
+      - "/etc/timezone:/etc/timezone"
+      - "/home/create_database_nim.sh:/tmp/create_database_nim.sh"
+    env:
+       MYSQL_ROOT_PASSWORD: "{{root_pass_sql}}"
+       MYSQL_ROOT_HOST: "%"

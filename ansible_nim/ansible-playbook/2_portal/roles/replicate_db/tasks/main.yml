@@ -1,0 +1,4 @@
+- name: Replicate database
+  command: "{{ item }}"
+  with_items:
+    - bash /home/auto_deploy_2portal/deploy-sme_vstorage/config/replicate_db.sh

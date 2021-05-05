@@ -1,0 +1,5 @@
+- name: Change timezone Vietnam
+  command: "{{ item }}"
+  with_items:
+    - rm /etc/localtime
+    - ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime

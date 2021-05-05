@@ -1,0 +1,37 @@
+---
+ansible_python_interpreter: /usr/bin/python3
+########Thông tin registry############
+reg: hub.vngcloud.tech
+reg_user: robot$vcloudstack
+reg_passwd: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODc1NDgxMDYsImlhdCI6MTU4NDk1NjEwNiwiaXNzIjoiaGFyYm9yLXRva2VuLWRlZmF1bHRJc3N1ZXIiLCJpZCI6MzE1ODcsInBpZCI6OCwiYWNjZXNzIjpbeyJSZXNvdXJjZSI6Ii9wcm9qZWN0LzgvcmVwb3NpdG9yeSIsIkFjdGlvbiI6InB1bGwiLCJFZmZlY3QiOiIifV19.jfjEjU-0PldeoSnyjGzCVJaTF_4R9jSdnhRSlMijDA3m682j01NPuOILLYxQHtSDr-cKz60jZZu57sme8-WGPOtGgF7zFMn7z0ZgraSLJkyiP0CeWsMeGDdDp4NQxvd9KbyenqORacKlj5bWHhQwjSgzTjoAw_CKCcxRhKQK8_W_qA30AoC5wTIe6gQaHO3l4lRzOZ9YD508AJOU_aZH_sohXC8LZbtfQl2nMhHFIaa_2yYdYtOyFcx2wMpSRf_J6inpIQD5fms7b468ix77epiAoGmrYRNVk7LylcmTfs5Wz2n1uF4SSpLXV7JdsRNV8ibf2lcTpx1iGUf6cyPvIZ1281GUBkZnDhEIK-DFjSvhEwThWDIMrdKjGj5JZgLszkcErBO08WBzlRHTtxaNVCD5BxbLcRdLvzBRR2Gg5VH0tSRcWrZfLnoheKikGw-uXz6hdV7oUS8-7Og4hLJt1H81j43bIcRftlRX7SFgq6nsSJIt1ffF31yjoRW6HV4c7Ec3_fG3S6zXaMYlg-7zmwFf09kkw3yRAotr7T88wFHQe2UEeqMSK4cl8DYMd3rsFTWRlKJQeIe0KFdIR5aQxVqKtIJl3JZTV0BrBgkKocEgmCsAT2zjZYTyhsNOi2ceD0o6s-Bj090eGTnE6SdMvwfT90powcz3cyjqGXS8gPM
+
+########Thông tin image cho các container######
+
+#########Thông tin redis#######################
+redis_image: hub.vngcloud.tech/vcloudstack/redis
+
+#########Thông tin mysql#######################
+mysql_image: mysql:8.0.18
+mysql_vol: /data/vnd/mysql
+root_pass_sql: T4ygH9lQ3j7kAh2
+db_name: sme_api
+
+
+#########Thông tin web và api VNG-CLOUD#######################
+
+api_image: hub.vngcloud.tech/vcloudstack/sme-api:sme_api_nim
+api_vol: /data/vnd/sme-api/config
+
+vstorage_image: hub.vngcloud.tech/vcloudstack/sme-vstorage:sme_vstorage_nim
+vstorage_vol: /data/vnd/sme-vstorage/config
+
+web_image: hub.vngcloud.tech/vcloudstack/portal-sme:portal_sme_nim
+web_vol: /data/vnd/web
+
+#########Thông tin keepalived#######################
+keepalive_image: hub.vngcloud.tech/vcloudstack/keepalived:2.0.19
+keepalive_vol: /data/vnd/keepalive
+ETH: eth_nim
+VIP: vip_nim
+MASTER_IP: vip_master_nim
+BACKUP_IP: vip_backup_nim

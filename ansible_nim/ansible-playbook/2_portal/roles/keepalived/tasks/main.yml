@@ -1,0 +1,17 @@
+- name: Run Keepalive container
+  docker_container:
+    name:  'keepalive'
+    restart_policy: always
+    recreate: true
+    image: "{{keepalive_image}}"
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "/etc/timezone:/etc/timezone"
+    env:
+      KEEPALIVED_INTERFACE: "{{ETH}}"
+      KEEPALIVED_VIRTUAL_IPS: "#PYTHON2BASH:['{{VIP}}']"
+      KEEPALIVED_UNICAST_PEERS: "#PYTHON2BASH:['{{BACKUP_IP}}','{{MASTER_IP}}']"
+      KEEPALIVED_PRIORITY: "{{PRIORITY}}"
+      KEEPALIVED_STATE: "{{STATE}}"
+    network_mode: host
+    capabilities: NET_ADMIN

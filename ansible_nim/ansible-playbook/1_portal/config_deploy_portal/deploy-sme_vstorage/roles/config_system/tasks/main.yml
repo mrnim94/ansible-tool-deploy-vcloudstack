@@ -1,0 +1,15 @@
+- name: Change timezone Vietnam
+  command: "{{ item }}"
+  with_items:
+    - rm /etc/localtime
+    - ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - mysql-client*
+  tags:
+    - nim

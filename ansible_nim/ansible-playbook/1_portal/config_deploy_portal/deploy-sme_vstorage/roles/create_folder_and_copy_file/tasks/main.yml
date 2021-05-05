@@ -1,0 +1,27 @@
+---
+- name: Create defalt dir
+  command: "mkdir -p {{web_vol}} {{api_vol}}"
+- name: Copy template file
+  copy: "src=./config/default.conf dest={{web_vol}}/conf/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/config.deploy.json dest={{web_vol}}/angular/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/novnc/ dest={{web_vol}}/novnc/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/sme.api.properties dest={{api_vol}}/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/env.properties dest={{api_vol}}/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/log4j.properties dest={{api_vol}}/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/localhost.pem dest={{web_vol}}/ssl/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/application.properties dest={{vstorage_vol}}/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/logback-spring.xml dest={{vstorage_vol}}/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/create_database_nim.sh dest=/home/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/sme_api_nim.sql dest=/home/ mode=0755"
+- name: Copy template file
+  copy: "src=./config/sme_backup_restore_nim.sql dest=/home/ mode=0755"

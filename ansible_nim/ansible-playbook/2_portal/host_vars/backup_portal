@@ -1,0 +1,8 @@
+---
+#########Thông tin keepalived for backup#######################
+ETH: eth_backup_nim
+PRIORITY: '90'
+STATE: BACKUP
+
+#################Thông tin file mysql.cnf#######################
+name_file_mysql: mysql_nim2

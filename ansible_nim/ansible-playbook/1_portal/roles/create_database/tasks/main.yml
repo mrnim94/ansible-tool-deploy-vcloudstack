@@ -1,0 +1,10 @@
+- name: Check Mysql
+  wait_for:
+    host: 127.0.0.1
+    port: 3306
+    delay: 60
+
+- name: Create databases
+  command:  docker exec -it mysql bash /tmp/create_database_nim.sh
+  args:
+    creates: /data/vnd/mysql/data/sme_api/

@@ -1,0 +1,22 @@
+- name: Deploy a web portal
+  hosts: master_portal backup_portal
+  any_errors_fatal: true
+  roles:
+    - login_private_registry
+    - config_system
+    - create_folder_and_copy_file
+    - redis
+    - mysql
+    - sme_api
+    - vstorage_api
+    - web
+    - keepalived
+    - create_database
+    - logout__private_registry
+
+# Nếu không cần replicate và import dữ DB rỗng thì comment những dòng bên dưới
+- name: Import Database
+  hosts: deploy_portal
+  roles:
+    - replicate_db
+    - import_db_default

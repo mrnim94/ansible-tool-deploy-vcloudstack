@@ -1,0 +1,15 @@
+- name: Run sme-vstorage container
+  docker_container:
+    name: 'sme-vstorage'
+    image: "{{vstorage_image}}"
+    restart_policy: always
+    recreate: true
+    volumes:
+      - "{{vstorage_vol}}:/workspace/vstorage-integration/config"
+      - "/opt/logs/sme-vstorage:/opt/logs/vstorage-integration"
+      - "/etc/localtime:/etc/localtime"
+      - "/etc/timezone:/etc/timezone"
+      - "/etc/hosts:/etc/hosts"
+    env:
+       ENVIRONMENT: sme-vstorage
+    network_mode: host

@@ -1,0 +1,8 @@
+---
+#########Thông tin keepalived for master#######################
+ETH: eth_master_nim
+PRIORITY: '100'
+STATE: MASTER
+
+#################Thông tin file mysql.cnf#######################
+name_file_mysql: mysql_nim1

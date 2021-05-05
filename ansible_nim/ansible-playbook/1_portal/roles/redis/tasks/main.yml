@@ -1,0 +1,7 @@
+---
+- name: Run redis
+  docker_container:
+    name:  'redis'
+    restart_policy: always
+    image: "{{redis_image}}"
+    network_mode: host

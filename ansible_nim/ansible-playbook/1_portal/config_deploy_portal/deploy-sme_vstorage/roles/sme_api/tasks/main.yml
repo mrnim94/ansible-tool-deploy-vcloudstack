@@ -1,0 +1,14 @@
+- name: Run sme-api container
+  docker_container:
+    name: 'sme-api'
+    image: "{{api_image}}"
+    restart_policy: always
+    recreate: true
+    volumes: 
+      - "{{api_vol}}:/opt/tomcat/vhost/cloudservice/ROOT/WEB-INF/config"
+      - "/opt/logs/sme-api:/opt/logs/sme-api"
+      - "/etc/localtime:/etc/localtime"
+      - "/etc/timezone:/etc/timezone"
+    env:
+       ENVIRONMENT: sme-api
+    network_mode: host

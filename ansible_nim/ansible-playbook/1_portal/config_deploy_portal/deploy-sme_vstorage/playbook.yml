@@ -1,0 +1,19 @@
+- name: Deploy a web portal
+  hosts: master_portal
+  roles:
+    - login_private_registry
+    - config_system
+    - create_folder_and_copy_file
+    - redis
+    - mysql
+    - sme_api
+    - vstorage_api
+    - web
+    - keepalived
+    - create_database
+    - logout__private_registry
+
+- name: Import Database
+  hosts: deploy_portal
+  roles:
+    - import_db_default

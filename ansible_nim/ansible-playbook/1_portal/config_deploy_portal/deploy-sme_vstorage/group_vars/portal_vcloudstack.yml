@@ -1,0 +1,37 @@
+---
+ansible_python_interpreter: /usr/bin/python3
+########Thông tin registry############
+reg: caas.vinadata.vn:5000
+reg_user: nilv
+reg_passwd: h1y8GQxrf1ILiMTMgkWRR5TDA
+
+########Thông tin image cho các container######
+
+#########Thông tin redis#######################
+redis_image: caas.vinadata.vn:5000/demo/redis
+
+#########Thông tin mysql#######################
+mysql_image: mysql:8.0.18
+mysql_vol: /data/vnd/mysql
+root_pass_sql: T4ygH9lQ3j7kAh2
+db_name: sme_api
+
+
+#########Thông tin web và api VNG-CLOUD#######################
+
+api_image: caas.vinadata.vn:5000/demo/sme-api:sme_api_nim
+api_vol: /data/vnd/sme-api/config
+
+vstorage_image: caas.vinadata.vn:5000/demo/sme-vstorage:sme_vstorage_nim
+vstorage_vol: /data/vnd/sme-vstorage/config
+
+web_image: caas.vinadata.vn:5000/demo/portal-sme:portal_sme_nim
+web_vol: /data/vnd/web
+
+#########Thông tin keepalived#######################
+keepalive_image: caas.vinadata.vn:5000/demo/keepalived:2.0.10
+keepalive_vol: /data/vnd/keepalive
+ETH: eth_nim
+VIP: vip_nim
+MASTER_IP: vip_master_nim
+BACKUP_IP: vip_backup_nim

@@ -1,0 +1,26 @@
+{
+    "env": {
+        "name": "DEPLOY"
+    },
+    "vms": {
+        "memory": {
+            "max": 32
+        },
+        "core": {
+            "max": 16
+        },
+        "diskSize": {
+            "max": 100
+        }
+    },
+    "timer": 3000,
+    "files": "/assets/files/",
+    "apiServer": {
+        "api_url": "api/"
+    
+    },  
+    "apiServerVstorage": {
+        "api_url": "bk-rs/"
+    }
+}
+

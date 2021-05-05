@@ -1,0 +1,4 @@
+[portal_vcloudstack]
+master_portal ansible_host=ip_master_nim ansible_user=root ansible_port=22
+backup_portal ansible_host=ip_backup_nim ansible_user=root ansible_port=22
+deploy_portal ansible_host=127.0.0.1 ansible_user=root ansible_port=22

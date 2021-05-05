@@ -1,0 +1,4 @@
+- name: Log out Docker registry
+  docker_login:
+    registry: "{{reg}}"
+    state: absent

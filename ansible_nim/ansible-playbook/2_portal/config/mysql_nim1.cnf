@@ -1,0 +1,7 @@
+[mysqld]
+server-id=1
+log_bin=/var/lib/mysql/mysql-bin.log
+binlog-do-db=sme_api
+binlog-do-db=sme_backup_restore
+auto-increment-increment=2
+auto-increment-offset=2

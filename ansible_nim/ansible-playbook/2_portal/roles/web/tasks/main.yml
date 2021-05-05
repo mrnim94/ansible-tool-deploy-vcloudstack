@@ -1,0 +1,15 @@
+- name: Run Web container
+  docker_container:
+    name:  'web'
+    restart_policy: always
+    recreate: true
+    image: "{{web_image}}"
+    volumes:
+      - "{{web_vol}}/conf:/etc/nginx/conf.d/"
+      - "{{web_vol}}/angular:/src/app/assets/config"
+      - "{{web_vol}}/novnc/:/src/app/novnc/"
+      - "{{web_vol}}/ssl:/etc/nginx/ssl"
+      - "/opt/logs/web:/opt/logs"
+      - "/etc/localtime:/etc/localtime"
+      - "/etc/timezone:/etc/timezone"
+    network_mode: host
